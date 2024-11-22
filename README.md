@@ -7,11 +7,11 @@ This document provides a top-level explanation of how [33bits.xyz](http://33bits
 3. Zero-Knowledge Proof Scheme
 4. Sending a Cast to Farcaster
 
-Post privately on Farcaster through [33bits.xyz](https://33bits.xyz/). Zk prove that your FID ≤ 10001 and cast on the [@33bits](https://warpcast.com/33bits) feed without revealing your personal account. This project is built with the intention to provoke open dialogues and explore how the Farcaster community will use or abuse their privacy.
+Post privately on Farcaster through [33bits.xyz](https://33bits.xyz/). Zk prove that your FID ≤ 20001 and cast on the [@33bits](https://warpcast.com/33bits) feed without revealing your personal account. This project is built with the intention to provoke open dialogues and explore how the Farcaster community will use or abuse their privacy.
 
 ### **Sign In**
 
-When a user signs in with Warpcast, the 33bits app links their FID with a new signer. To post a cast, the user must prove that their FID is ≤ 10001 through zero-knowledge (zk) proofs. This proof is generated using the user’s new signer. The entire process, including authentication and proof generation, occurs in the user's browser, keeping their FID private. After the new signer is approved by the user, a transaction with signer information is automatically broadcasted to the Farcaster `KeyRegistry` contract on Optimism. Meanwhile, 33bits API monitors the blockchain, building a Merkle tree with all the signers. This Merkle tree is used for zero-knowledge proofs - 33bits app proves that the user’s public key is in the tree without revealing the exact position.
+When a user signs in with Warpcast, the 33bits app links their FID with a new signer. To post a cast, the user must prove that their FID is ≤ 20001 through zero-knowledge (zk) proofs. This proof is generated using the user’s new signer. The entire process, including authentication and proof generation, occurs in the user's browser, keeping their FID private. After the new signer is approved by the user, a transaction with signer information is automatically broadcasted to the Farcaster `KeyRegistry` contract on Optimism. Meanwhile, 33bits API monitors the blockchain, building a Merkle tree with all the signers. This Merkle tree is used for zero-knowledge proofs - 33bits app proves that the user’s public key is in the tree without revealing the exact position.
 
 ![sign-in](./assets/sign-in.png)
 
@@ -31,7 +31,7 @@ leaf = MiMC([fid, public_key])
 
 ### Zero-knowledge proof scheme
 
-ZK proofs allow users to cast messages anon through 33bits.xyz. Users must prove their Farcaster account is valid & their FID (Farcaster ID) ≤ 10001, while keeping their exact FID private. Key point: while the user's private key and FID are secret, the Merkle root of the proof is public. The API uses this root to verify the proof against its Merkle root without seeing private details. This setup keeps the message casting secure and private, with the message itself being part of the proof.
+ZK proofs allow users to cast messages anon through 33bits.xyz. Users must prove their Farcaster account is valid & their FID (Farcaster ID) ≤ 20001, while keeping their exact FID private. Key point: while the user's private key and FID are secret, the Merkle root of the proof is public. The API uses this root to verify the proof against its Merkle root without seeing private details. This setup keeps the message casting secure and private, with the message itself being part of the proof.
 
 ![proof](./assets/proof.png)
 
